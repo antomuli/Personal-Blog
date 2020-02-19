@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class = "valign-wrapper">
+<div class = "container">
+    <div class="row">
+    <div class="col l3 m3 s12"></div>
+    <div class="col l6 m6 s12">
+    <br>
+    <h1>{{blog.title}}</h1>
+    <p class="grey-text">By {{blog.user.username}}</p>
+    <p>{{blog.content}}</p>
+    <br><hr><br><br>
+
+    {% if comments %}
+    {% for comment in comments %}
+    <div class = "card-panel">
+        <p>{{ comment.content}}</p>
+        <p class = "right-align grey-text"> By {{ comment.user.username }}</p>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class = "card-panel">
+        <p>No commments on this blog</p>
+    </div>
+    {% endif %}
+    <br>
+
+    <form action = "{{ url_for('main.blog_content', blog_id = blog.id)}}" method="POST" autocomplete="off">
+        <div class="">
+        <div class = "input-field">
+            {{ form.csrf_token(type_ = "hidden")}}
+        </div>
+        <div class = "input-field">
+            {{ form.comment.label }}
+            {{ form.comment(class_ = "materialize-textarea", placeholder = "Comment")}}
+        </div>
+        <div class = "input-field">
+            {{ form.submit(class_ = "btn")}}
+        </div>
+    </div>       
+    </form>
+    </div>
+    </div>
+</div>
+</div>
+{% endblock content%}
