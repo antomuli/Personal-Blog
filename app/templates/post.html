@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class = "container">
+    <h3 class = "center">All Blogs</h3>
+    <div class="row">
+    {% for blog in blogs %}
+    <div class="col s12 m4">
+        <a href="{{url_for('main.blog_content', blog_id = blog.id)}}">
+            <div class="card black-text darken-1 hoverable small">
+                <br>
+            <div class="card-content white-text">
+            <span class="card-title black-text">{{blog.title}}</span>
+            <p class = "black-text">{{blog.content | truncate(100)}}</p><br>
+            <p class = "black-text">By {{blog.user.username}} at {{blog.created_at}}</p>
+            </div>
+            <div class="card-action">
+            <a href="{{url_for('main.blog_content', blog_id = blog.id)}}">View</a>
+            </div>
+        </div>
+        </a>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock content %}
