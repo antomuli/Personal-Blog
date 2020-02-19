@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="valign-wrapper ba-jumbotron">
+    <div class = "container center-align">
+        <h4 class = "">Profile</h4>
+        <p>{{user.username}}</p>
+        <p>{{user.email}}</p>
+        <a class="waves-effect waves-light btn-large" href = "{{url_for('main.new_blog')}}">NEW BLOG</a>
+    </div>
+</div>
+<div class = "container">
+    <h3 class = "center">Your Blogs</h3>
+    <div class="row">
+    {% for blog in blogs %}
+    <div class="col s12 m4">
+        <a href="{{url_for('main.blog_content', blog_id = blog.id)}}">
+            <div class="card black-text darken-1 hoverable small">
+                <br>
+            <div class="card-content white-text">
+            <span class="card-title black-text">{{blog.title}}</span>
+            <p class = "black-text">{{blog.content | truncate(100)}}</p><br>
+            <p class = "black-text">By {{blog.user.username}}</p>
+            <p class = "black-text">Created at {{blog.created_at.strftime("%m-%d-%Y")}}</p>
+            </div>
+            <div class="card-action">
+            <a href="{{url_for('main.blog_content', blog_id = blog.id)}}">VIEW</a>
+            <a href="{{url_for('main.update_blog', blog_id = blog.id)}}">UPDATE</a>
+            <a class = "red-text" href="{{url_for('main.delete_blog', blog_id = blog.id)}}">DELETE</a>
+            </div>
+        </div>
+        </a>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% for message in get_flashed_messages() %}
+    <div class="card-panel red">
+    <span class = "white-text">{{ message }}</span>
+    </div>
+{% endfor %}
+{% endblock content %}
