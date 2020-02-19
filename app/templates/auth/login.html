@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class = "valign-wrapper ba-screen-full">
+    <div class = "container">
+    <div class="row">
+    <div class="col l3 m3 s12"></div>
+    <div class="col l6 m6 s12">
+        {% for message in get_flashed_messages() %}
+        <div class="card-panel red">
+        <span class = "white-text">{{ message }}</span>
+        </div>
+    {% endfor %}<br>
+    <form action = "{{ url_for('auth.login', next=request.args.get('next')) }}" method="POST" autocomplete="off">
+        <div class="">
+        <div class = "input-field">
+            {{ form.csrf_token(type_ = "hidden")}}
+        </div>
+        <div class = "input-field">
+            {{ form.email.label }}
+            {{ form.email(class_ = "validate", placeholder = "Email")}}
+        </div>
+        <div class = "input-field">
+            {{ form.password.label }}
+            {{ form.password(class_ = "validate", placeholder = "Password")}}
+        </div> 
+        <div class = "browser-default">
+            {{ form.remember(class_ = "browser-default") }}
+            {{ form.remember.label}}
+        </div>
+        <div class = "input-field">
+            {{ form.submit(class_ = "btn")}}
+        </div>
+    </div>       
+    </form>
+    <p>Don't have an account. <a href = "{{ url_for('auth.register') }}">Sign Up</a></p>
+    </div>
+    </div>
+    </div>
+</div>
+{% endblock %}
