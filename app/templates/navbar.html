@@ -1,0 +1,26 @@
+<nav>
+  <div class="nav-wrapper white">
+    <a href="/" class="brand-logo black-text ba-pl-1">Blog</a>
+    <a href="" data-target="mobile-side" class="sidenav-trigger black-text"><i class="material-icons">menu</i></a>
+    {% if current_user.is_authenticated %}
+    <ul class="right">
+      <li><a href="" class="black-text dropdown-trigger" data-target='account-drop'><i class="material-icons">account_circle</i></a></li>
+    </ul>
+    <ul id='account-drop' class='dropdown-content'>
+      <li><a href="/account">Account</a></li>
+      <li><a href="{{ url_for('auth.logout')}}">Logout</a></li>
+    </ul>
+    {% else %}
+      <a href="{{url_for('auth.login')}}" class = "right black-text">Sign in</a>
+    {%endif%}
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/" class = "black-text">Home</a></li>
+      <li><a href="/blogs" class = "black-text">Blogs</a></li>
+    </ul>
+  </div>
+</nav>
+<ul class="sidenav" id="mobile-side">
+  <li><a href="/" class = "black-text">Home</a></li>
+  <li><a href="" class = "black-text">Blogs</a></li>
+</ul>
+©
