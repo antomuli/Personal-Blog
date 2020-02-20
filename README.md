@@ -27,8 +27,7 @@ As a user of the web application you will be able to:
 
 ## CODEBEAT
 
-[![codebeat badge](https://codebeat.co/badges/6feab53a-468f-4b8c-b6bf-1ac5d10bfcd1)](https://codebeat.co/projects/github-com-antomuli-1_minute_pitch-master)
-
+[![codebeat badge](https://codebeat.co/badges/fd154ec5-b8be-439a-a73c-054a2eb00637)](https://codebeat.co/projects/github-com-antomuli-personal-blog-master)
 ## Getting started
 ### Prerequisites
 * python3.6
