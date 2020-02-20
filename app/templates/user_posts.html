@@ -1,0 +1,27 @@
+{% extends "blog.html" %} 
+
+{% block content %}
+<p>Posts by {{ user.username }} ({{ posts.total }})</p>
+
+{% for post in posts.items %}
+
+    {{ post.author.username }} {{ post.date_posted.strftime('%Y-%m-%d') }}
+    {{ post.title }}
+    {{ post.content }}
+
+{% endfor %} 
+{% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+
+    {% if page_num %} 
+        {% if posts.page == page_num %} 
+            {{ page_num }} 
+        {% else %} 
+            {{ page_num }}
+        {% endif %}
+     {% else %} 
+        ...
+
+    {% endif %} 
+
+{% endfor %} 
+{% endblock content %}

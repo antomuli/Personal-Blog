@@ -47,10 +47,10 @@ class Blog(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     comments = db.relationship('Comment', backref = 'blog', lazy = "dynamic")
 
-    def save(self):
+
+    def save_blog(self):
         db.session.add(self)
         db.session.commit()
-        return self.id
 
     @staticmethod
     def get_user_blogs(user_id):

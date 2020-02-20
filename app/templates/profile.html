@@ -6,11 +6,11 @@
         <h4 class = "">Profile</h4>
         <p>{{user.username}}</p>
         <p>{{user.email}}</p>
-        <a class="waves-effect waves-light btn-large" href = "{{url_for('main.new_blog')}}">NEW BLOG</a>
+        <p>{{user.id}}</p>
     </div>
 </div>
 <div class = "container">
-    <h3 class = "center">Your Blogs</h3>
+    <!-- <h3 class = "center">Your Blogs</h3> -->
     <div class="row">
     {% for blog in blogs %}
     <div class="col s12 m4">
@@ -22,11 +22,6 @@
             <p class = "black-text">{{blog.content | truncate(100)}}</p><br>
             <p class = "black-text">By {{blog.user.username}}</p>
             <p class = "black-text">Created at {{blog.created_at.strftime("%m-%d-%Y")}}</p>
-            </div>
-            <div class="card-action">
-            <a href="{{url_for('main.blog_content', blog_id = blog.id)}}">VIEW</a>
-            <a href="{{url_for('main.update_blog', blog_id = blog.id)}}">UPDATE</a>
-            <a class = "red-text" href="{{url_for('main.delete_blog', blog_id = blog.id)}}">DELETE</a>
             </div>
         </div>
         </a>

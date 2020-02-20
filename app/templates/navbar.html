@@ -1,10 +1,11 @@
 <nav>
-  <div class="nav-wrapper white">
+  <div class="nav-wrapper pale-light brown">
     <a href="/" class="brand-logo black-text ba-pl-1">Blog</a>
     <a href="" data-target="mobile-side" class="sidenav-trigger black-text"><i class="material-icons">menu</i></a>
     {% if current_user.is_authenticated %}
     <ul class="right">
-      <li><a href="" class="black-text dropdown-trigger" data-target='account-drop'><i class="material-icons">account_circle</i></a></li>
+      <li style="color: white;">{{current_user.username}}</li>
+      <li><a href="{{url_for('main.profile',uname=current_user.username)}}" class="black-text dropdown-trigger" data-target='account-drop'><i class="material-icons">account_circle</i></a></li>
     </ul>
     <ul id='account-drop' class='dropdown-content'>
       <li><a href="/account">Account</a></li>
@@ -14,8 +15,12 @@
       <a href="{{url_for('auth.login')}}" class = "right black-text">Sign in</a>
     {%endif%}
     <ul class="right hide-on-med-and-down">
+      <li style="color:darkcyan;"><a href="{{ url_for('auth.logout')}}">Logout</a></li>
       <li><a href="/" class = "black-text">Home</a></li>
       <li><a href="/blogs" class = "black-text">Blogs</a></li>
+      <li><a href="{{url_for('main.addpost')}}" rel="noopener noreferrer">
+          Add a Blog
+      </a></li>
     </ul>
   </div>
 </nav>
@@ -23,4 +28,3 @@
   <li><a href="/" class = "black-text">Home</a></li>
   <li><a href="" class = "black-text">Blogs</a></li>
 </ul>
-©
