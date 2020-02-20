@@ -71,6 +71,10 @@ As a user of the web application you will be able to:
 
 This application is developed using [Python3.6](https://www.python.org/doc/), [Flask](http://flask.palletsprojects.com/en/1.1.x/), [HTML](https://getbootstrap.com/) and [Bootstrap](https://getbootstrap.com/)
 
+## Known Bugs
+* The blog doesn't meet all the user's stories/needs.
+
+* The user may have some difficulty in profile handling and management since it's still under development.
 
 ## Support and Team
 Anthony Muli and fellow colleagues
