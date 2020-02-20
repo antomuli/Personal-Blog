@@ -3,7 +3,7 @@
 **Personal_Blog**
 
 ## Description
-Anto's blog is a personal blogging website where you can create and share your opinions and other users can read and comment on them. It  also has random quotes that inspire the users.  You can visit the live site on **link**
+Anto's blog is a personal blogging website where you can create and share your opinions and other users can read and comment on them. It  also has random quotes that inspire the users.  You can visit the live site on ** https://morning-plateau-98884.herokuapp.com/**
 
 ## Author
 
